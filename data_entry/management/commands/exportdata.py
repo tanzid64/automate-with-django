@@ -2,6 +2,8 @@ import csv
 from django.core.management.base import BaseCommand, CommandError
 from django.apps import apps
 import datetime
+
+from data_entry.utils import generate_csv_file
 # proposed command - python manage.py exportdata model_name
 class Command(BaseCommand):
   help = "Export data to csv file"
@@ -23,10 +25,9 @@ class Command(BaseCommand):
     if not model:
       raise CommandError(f"Model '{model_name}' not found in any app.")
     data = model.objects.all()
-    # generate timestapm
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    # define the csv file path
-    file_path = f"exported_{model_name}_data_{timestamp}.csv"
+
+    file_path = generate_csv_file(model_name)
+
     # open the csv file
     with open(file_path, "w", newline="") as file:
       writer = csv.writer(file)

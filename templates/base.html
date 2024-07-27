@@ -15,7 +15,10 @@
     <script src="{% static 'js/custom.js' %}"></script>
   </head>
   <body>
-    {% include "alerts.html" %} {% block content %}{% endblock content %} 
+    {% include "alerts.html" %} 
+    <a href='{% url "importdata" %}'>Import Data</a>
+    <a href='{% url "exportdata" %}'>Export Data</a>
+    {% block content %}{% endblock content %} 
     {% comment %} BootStrap Scripts {% endcomment %}
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
