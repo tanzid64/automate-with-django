@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,10 +12,10 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script src="{% static 'js/custom.js' %}"></script>
   </head>
   <body>
-    {% include "alerts.html" %}
-    {% block content %}{% endblock content %}
+    {% include "alerts.html" %} {% block content %}{% endblock content %} 
     {% comment %} BootStrap Scripts {% endcomment %}
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

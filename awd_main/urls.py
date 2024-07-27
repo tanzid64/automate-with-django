@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home, name="home"),
     path('', include('data_entry.urls')),
+    path('celery-test/', views.celery_test),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
