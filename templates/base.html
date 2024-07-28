@@ -23,11 +23,11 @@
         <a class="navbar-brand" href="{% url 'home' %}">AWD</a>
         <div class="">
           {% if request.user.is_authenticated %}
-          <a href="{% url 'register' %}" class="float-right text-decoration-none btn btn-danger"
-            >Logout</a
+          <a href="{% url 'logout' %}" class="float-right text-decoration-none btn btn-danger"
+            >Logout</a>
           {% else %}
           <a href="{% url 'login' %}" class="float-right text-decoration-none btn">Login</a>
-          >
+          
           {% endif %}
         </div>
       </div>

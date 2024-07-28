@@ -8,3 +8,7 @@ class RegisterForm(UserCreationForm):
   class Meta:
     model = User
     fields = ['username', 'email', 'password1', 'password2']
+    def __init__(self, *args, **kwargs):
+      super(RegisterForm, self).__init__(*args, kwargs)
+      self.fields['password1'].help_text = ""
+      self.fields['password2'].help_text = ""

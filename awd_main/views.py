@@ -4,7 +4,7 @@ from data_entry.tasks import celery_test_task
 from .forms import RegisterForm
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 
 def home(request):
   return render(request, 'home.html')
@@ -44,15 +44,15 @@ def login(request):
       password = form.cleaned_data.get('password')
       user = authenticate(username=username, password=password)
       if user:
-        login(request, user)
+        auth_login(request, user)
         return redirect('home')
     else:
       messages.error(request, 'Invalid username or password')
       return redirect('login')
   else:
     form = AuthenticationForm()
-  return render(request, 'register.html', {'form': form})
+  return render(request, 'login.html', {'form': form})
 
 def logout(request):
-  logout(request)
+  auth_logout(request)
   return redirect('home')
