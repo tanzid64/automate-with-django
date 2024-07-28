@@ -22,7 +22,7 @@ The first thing to do is to clone the repository:
 
 ```bash
   git clone https://github.com/tanzid64/automate-with-django.git
-  cd Bindu-Blood-Bank/backend/
+  cd automate-with-django/
 ```
 
 Create a virtual environment to install dependencies in and activate it:
@@ -47,7 +47,7 @@ Then install the dependencies:
   pip install -r requirements.txt
 ```
 
-Create a file name .env in project folder.
+Create a file name .env in root directory.
 
 ## Environment Variables
 
