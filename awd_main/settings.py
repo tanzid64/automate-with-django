@@ -129,7 +129,7 @@ MESSAGE_TAGS = {
 }
 
 # Celery Configuration Options
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = config('CELERY_BROKER_URL')
 
 # Email Configuration
 EMAIL_HOST = config('EMAIL_HOST')
