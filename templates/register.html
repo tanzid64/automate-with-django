@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}AWD | {% if register %}Register {% else %}Login{% endif %}{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container mt-5 bg-secondary p-3" style="max-width: 600px; border-radius:10px;">
+  <h2 class="text-center">
+    {% if register %}Register {% else %}Login{% endif %}
+  </h2>
+  <form {% if register %}action="{% url 'register' %}" {% else %} action="{% url 'login' %}" {% endif %} method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+  {{form | crispy}}
+</div>
+  <div class="form-group">
+    <input type="submit" {% if register %} value="Register" {% else %} value="Login"{% endif %} class="btn btn-success">
+  </div>
+</form>
+</div>
+{% endblock content %}
