@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Automate Boring Work with Django{% endblock title %}
 {% block content %}
-  <div class="container">
+  <div class="container mt-5 bg-secondary shadow" style="max-width: 600px; padding:50px; border-radius:10px">
     <h3 class="text-center">Import Data to Database Tables</h3>
-    <form action="{%url 'importdata'%}" method="POST" enctype="multipart/form-data" class="d-flex flex-column gap-3 m-auto pt-3" style="max-width: 600px;">
+    <form action="{%url 'importdata'%}" method="POST" enctype="multipart/form-data" style="max-width: 600px;">
       {% csrf_token %}
       <div class="form-group">
         <label for="file_path">Upload CSV File</label>
@@ -18,7 +18,9 @@
           {% endfor %}
         </select>
       </div>
-      <input type="submit" value="Import Data" class="btn btn-primary mx-auto">
+      <div class="form-group">
+        <input type="submit" value="Import Data" class="btn btn-primary mx-auto">
+      </div>
     </form>
   </div>
 {% endblock content %}

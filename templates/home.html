@@ -1,7 +1,93 @@
 {% extends "base.html" %}
 {% block title %}Automate Boring Work with Django{% endblock title %}
 {% block content %}
-  <h3>Home Page</h3>
-  <br>
-  
+  <div class="container" style="padding: 50px;">
+    <h2 class="text-center">Automate The Boring Stuff With Django</h2>
+    <div class="row pt-5">
+        <!-- Import data -->
+        <div class="col-md-4">
+            <a href="{% url 'importdata' %}" class="text-decoration-none text-dark">
+                <div class="card bg-primary shadow">
+                    <div class="card-header">
+                    <h4>Import Data</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Imports data from CSV file to any table.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Export Data -->
+        <div class="col-md-4">
+            <a href="{% url 'exportdata' %}" class="text-decoration-none text-dark">
+                <div class="card bg-success shadow">
+                    <div class="card-header">
+                    <h4>Export Data</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Exports data from a specific table to a CSV file.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Bulk Emails -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card bg-danger shadow">
+                    <div class="card-header">
+                    <h4>Bulk Emails</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Sends bulk emails to users</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <!-- Email Tracking -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card bg-success shadow">
+                    <div class="card-header">
+                    <h4>Email Tracking</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Tracks emails and shows open and click rate</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+     <!-- Compress Images -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card bg-danger shadow">
+                    <div class="card-header">
+                    <h4>Compress Images</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Compresses Image files and reduces the size</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+     <!-- Web Scraping -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card bg-secondary shadow">
+                    <div class="card-header">
+                    <h4>Web Scraping</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Scrapes websites for useful information</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock content %}
