@@ -3,6 +3,7 @@
 {% block content %}
   <div class="container" style="padding: 50px;">
     <h2 class="text-center">Automate The Boring Stuff With Django</h2>
+    {% if request.user.is_authenticated %}
     <div class="row pt-5">
         <!-- Import data -->
         <div class="col-md-4">
@@ -89,5 +90,16 @@
             </a>
         </div> {% endcomment %}
     </div>
+    {% else %}
+    <p class="text-center">
+        Login to continue...
+    </p>
+    <div class="d-flex gap-5 mt-3 justify-content-center">
+        <a href="{% url 'login' %}" class="float-right text-decoration-none btn btn-primary"
+            >Login</a>
+        <a href="{% url 'register' %}" class="float-right text-decoration-none btn btn-success"
+            >Register</a>
+    </div>
+    {% endif %}
 </div>
 {% endblock content %}
