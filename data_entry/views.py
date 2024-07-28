@@ -28,7 +28,7 @@ def import_data(request):
       return redirect('importdata')
     
     # handle the import data task here
-    import_data_task.delay(file_path, model_name)
+    import_data_task.delay(file_path, model_name, request.user.email)
 
     messages.success(request, 'Your data is being imported. You will be notified once it is completed.')
     return redirect('importdata')
@@ -43,7 +43,7 @@ def export_data(request):
   if request.method == 'POST':
     model_name = request.POST.get('model_name')
     # call the export data task here
-    export_data_task.delay(model_name)
+    export_data_task.delay(model_name, request.user.email)
     messages.success(request, 'Your data is being exported. You will be notified once it is completed.')
     return redirect('exportdata')
   else:

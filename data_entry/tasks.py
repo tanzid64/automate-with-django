@@ -15,7 +15,7 @@ def celery_test_task():
   return 'celery test task & email executed successfully'
 
 @app.task
-def import_data_task(file_path, model_name):
+def import_data_task(file_path, model_name, user_email):
   try:
     call_command('importdata', file_path, model_name)
   except Exception as e:
@@ -24,13 +24,13 @@ def import_data_task(file_path, model_name):
   # notify the user by email
   body="import data task executed successfully"
   subject = "import data task"
-  to_email = ["tanzid3@gmail.com"]
+  to_email = [user_email]
   send_email_notification(subject, body, to_email)
   return 'import data task executed successfully'
 
 
 @app.task
-def export_data_task(model_name):
+def export_data_task(model_name, user_email):
   try:
     call_command('exportdata', model_name)
   except Exception as e:
@@ -39,6 +39,6 @@ def export_data_task(model_name):
   # notify the user by email
   body="export data task executed successfully. Check the attachment."
   subject = "export data task"
-  to_email = ["tanzid3@gmail.com"]
+  to_email = [user_email]
   send_email_notification(subject, body, to_email, attachment=file_path)
   return 'export data task executed successfully'
